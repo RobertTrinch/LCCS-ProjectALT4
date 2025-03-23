@@ -3,7 +3,7 @@ import requests
 import uuid
 import datetime
 import time
-#from gpiozero import DistanceSensor
+from gpiozero import DistanceSensor
 
 # Ultrasonic Sensors and their pins (guide: https://projects.raspberrypi.org/en/projects/physical-computing/12)
 # Sensor 1 should be closest to the door (entrance would be triggered in the order of 1 then 2)
@@ -13,8 +13,8 @@ SENSOR1_isTriggered = False
 SENSOR2_echoPin = 3
 SENSOR2_triggerPin = 4
 SENSOR2_isTriggered = False
-#sensor1 = DistanceSensor(echo=SENSOR1_echoPin, trigger=SENSOR1_triggerPin, max_distance=3, threshold_distance=0.5)
-#sensor2 = DistanceSensor(echo=SENSOR2_echoPin, trigger=SENSOR2_triggerPin, max_distance=3, threshold_distance=0.5)
+sensor1 = DistanceSensor(echo=SENSOR1_echoPin, trigger=SENSOR1_triggerPin, max_distance=3, threshold_distance=0.5)
+sensor2 = DistanceSensor(echo=SENSOR2_echoPin, trigger=SENSOR2_triggerPin, max_distance=3, threshold_distance=0.5)
 
 # API / Identifiers / API Calls
 apiUrl = "API_URL_HERE"
@@ -102,8 +102,8 @@ else:
 
 print("Beginning monitoring (Device ID: " + setDeviceId + ")")
 
-#sensor1.when_in_range = OnSensor1Triggered
-#sensor2.when_in_range = OnSensor2Triggered
+sensor1.when_in_range = OnSensor1Triggered
+sensor2.when_in_range = OnSensor2Triggered
 
 while True:
     time.sleep(0)
