@@ -68,7 +68,7 @@ def OnSensor1Triggered():
     global SENSOR1_isTriggered, SENSOR2_isTriggered
     SENSOR1_isTriggered = True
     time.sleep(0.3) # Delay to allow the user to move to the next sensor
-    if(SENSOR2_isTriggered == False):
+    if(SENSOR2_isTriggered == True):
         CreateMovement(True)
         print("Movement Detected: Entry")
     SENSOR1_isTriggered = False # Reset values
@@ -78,7 +78,7 @@ def OnSensor2Triggered():
     global SENSOR1_isTriggered, SENSOR2_isTriggered
     SENSOR2_isTriggered = True
     time.sleep(0.3) # Delay to allow the user to move to the next sensor
-    if(SENSOR1_isTriggered == False):
+    if(SENSOR1_isTriggered == True):
         CreateMovement(False)
         print("Movement Detected: Exit")
     SENSOR1_isTriggered = False # Reset values
